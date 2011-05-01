@@ -1,0 +1,13 @@
+Files bsdmake-17/.Makefile.swp and bsdmake-17/.Makefile.swp differ
+diff -ur bsdmake-17/Makefile bsdmake-17/Makefile
+--- bsdmake-17/Makefile	2004-11-19 23:34:23.000000000 +0400
++++ bsdmake-17/Makefile	2011-04-30 21:09:10.000000000 +0400
+@@ -3,7 +3,7 @@
+ # $FreeBSD: src/usr.bin/make/Makefile,v 1.33 2004/08/12 11:49:55 harti Exp $
+ 
+ PROG=	make
+-CFLAGS+=-I${.CURDIR} -mdynamic-no-pic
++CFLAGS+=-I${.CURDIR} 
+ SRCS=	arch.c buf.c compat.c cond.c dir.c for.c hash.c job.c main.c \
+ 	make.c parse.c str.c suff.c targ.c util.c var.c var_modify.c
+ SRCS+=	lstAppend.c lstAtEnd.c lstAtFront.c lstClose.c lstConcat.c \

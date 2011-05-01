@@ -1,0 +1,33 @@
+diff -ur bsdmake-17/main.c bsdmake-17/main.c
+--- bsdmake-17/main.c	2004-08-31 08:54:28.000000000 +0400
++++ bsdmake-17/main.c	2011-05-01 00:27:38.000000000 +0400
+@@ -490,8 +490,13 @@
+ 	  iMkLvl = 0;
+ 	}
+ 	if (iMkLvl++ > MKLVL_MAXVAL) {
++#ifdef __APPLE__
+ 	  errc(2, EAGAIN, 
+ 	       "Max recursion level (%d) exceeded.", MKLVL_MAXVAL);
++#else
++	  printf( "Max recursion level (%d) exceeded: %s\n", MKLVL_MAXVAL, strerror(EAGAIN) );
++	  exit(2);
++#endif
+ 	}
+ 	bzero(szMkLvl = emalloc(32), 32);
+ 	sprintf(szMkLvl, "%d", iMkLvl);
+@@ -519,6 +519,7 @@
+ 	}
+ #endif
+ 
++#ifdef __APPLE__
+ 	/*
+ 	 * PC-98 kernel sets the `i386' string to the utsname.machine and
+ 	 * it cannot be distinguished from IBM-PC by uname(3).  Therefore,
+@@ -538,6 +539,7 @@
+ 				machine = "pc98";
+ 		}
+ 	}
++#endif
+ 
+ 	/*
+ 	 * Get the name of this type of MACHINE from utsname

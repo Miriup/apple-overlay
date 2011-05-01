@@ -1,0 +1,9 @@
+Introduction
+
+This Gentoo overlay is for work towards being able to use a Gentoo Linux box as
+build host for Gentoo prefix running on MacOSX Tiger in a distcc environment.
+The main problem is that binutils-apple cannot currently be cross-compiled due
+to missing headers and other obstacles.
+
+This overlay has also debris from earlier attempts to rectify issues and is
+probably not yet useful.
